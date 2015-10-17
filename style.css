@@ -1,0 +1,74 @@
+.tab-content{
+	margin-top: 20px;
+	padding: 0 20px 0;
+}
+
+textarea{
+	width: 173px;
+	height: 100px;
+}
+
+.input_cript input{
+	display: block;
+	margin-top: 15px;
+	width: 173px;
+}
+
+.btn-default{
+	margin-top: 15px;
+	margin-right: 20px;
+}
+
+.input_cript{
+	float: left;
+	margin-right: 30px;
+}
+
+.clear{
+	clear: both;
+}
+
+.form{
+	margin: 30px auto 30px;
+	display: block;
+	max-width: 728px;
+}
+
+.nav-tabs{
+    margin: 0 auto;
+    background-color: #F7F7F9;
+}
+
+.container{
+	width: 950px!important;
+	padding: 0;
+	bottom: 0px;
+	top: 0px;
+	position: relative;
+	height: 100%;
+}
+
+body{
+	background-color: #F7F7F9;
+}
+
+.max-size{
+	max-height: 195px;
+    overflow-y: scroll;
+}
+
+label{
+	display: block;
+	width: 201px;
+	margin-top: 20px;
+}
+.desc{
+	display: block;
+    width: 181px;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+h1,h2{
+	text-align: center;
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="boot.js"></script>
+	<script type="text/javascript" src="laba_1_perestanovka.js"></script>
+</head>
+<body>
+		<div class="container">
+
+				<ul class="nav nav-tabs">
+				  <li class="active"><a href="#transposition" data-toggle="tab">Метод перестановки</a></li>
+				  <li><a href="#monoalphabetic " data-toggle="tab">Моноалфавитная подстановка</a></li>
+				  <li><a href="#multialphabet" data-toggle="tab">Многоалфавитная подстановка</a></li>
+				  <li><a href="#hillscode" data-toggle="tab">Код Хилла</a></li>
+				  <li><a href="#frequency" data-toggle="tab">Частотный анализ</a></li>
+				</ul>
+
+
+				<div class="tab-content">
+				  <div class="tab-pane active" id="transposition">
+				  		<h1>Лабораторная работа №1</h1>
+				  		<h2>Шифрование методом перестановки</h2>
+				  		<div id="l1_encryption_inputset" class="form">
+				  			<div class="input_cript">
+				  				<label>Введите текст, который необходимо зашифровать</label>
+					  			<textarea id="l1_enc_original_text" type="text" placeholder="Что будем шифровать?"></textarea>
+					  			<label>Введите ключ шифрования</label>
+					  			<input id="l1_enc_encryption_key" type="text" placeholder="С каким ключом?" data-toggle="tooltip" data-placement="bottom" title="Вы можете ввести только длину ключа (от 1 до 9), а я автоматически его создам. А можете сами ввести комбинацию." />
+					  			<span class="desc">Ключ - это последовательность, сформированная случайной перестановкой из натурального ряда чисел от 1 до 9.</span>
+					  			
+					  		</div> 	
+
+					  		<div class="input_cript ">
+					  			<label>Таблица перестановки</label>
+					  			<div class="matrixcript max-size">
+					  				
+
+										<table id="l1_enc_result_table" class="table table-responsive table-striped table-bordered">
+											<thead>
+												<tr>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+
+
+					  			</div>
+					  			
+					  		</div>
+
+					  		<div class="input_cript">
+					  			<label>Зашифрованный текст</label>
+					  			<textarea id="l1_enc_encrypted_text" type="text" placeholder="Здесь будет зашифрованный текст"></textarea>	
+					  		
+					  		</div>	
+					  		<div class="clear"></div>	  		
+							
+					  		<button id="l1_enc_encrypt_btn" class="btn btn-default">Зашифровать</button>
+					  		<button id="l1_enc_encrypt_btn_custom" class="btn btn-default">Зашифровать (сложный метод)</button>
+
+					  		<div class="clear"></div>
+				  		</div>
+
+				  		<div id="l1_decryption_inputset" class="form">
+				  			<div class="input_cript">
+				  				<label>Введите текст, который необходимо расшифровать</label>
+					  			<textarea id="l1_dec_encrypted_text" type="text" placeholder="Что будем расшифровывать?"></textarea>
+					  			<label>Введите ключ шифрования</label>
+					  			<input id="l1_dec_encryption_key" type="text" placeholder="С каким ключом?" data-toggle="tooltip" data-placement="bottom" title="Вы можете ввести только длину ключа (от 1 до 9), а я автоматически его создам. А можете сами ввести комбинацию." />
+					  			<span class="desc">Ключ - это последовательность, сформированная случайной перестановкой из натурального ряда чисел от 1 до 9.</span>
+					  			
+					  		</div> 	
+
+					  		<div class="input_cript ">
+					  		<label>Таблица перестановки</label>
+					  			<div class="matrixdecript max-size">
+					  				
+										<table id="l1_dec_result_table" class="table table-striped table-responsive table-bordered">
+											<thead>
+												<tr>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+
+					  			</div>
+					  			
+					  		</div>
+
+					  		<div class="input_cript">
+					  			<label>Расшифрованный текст</label>
+					  			<textarea id="l1_dec_decrypted_text" type="text" placeholder="Здесь будет расшифрованный текст"></textarea>	
+					  		
+					  		</div>		
+					  		<div class="clear"></div>			  		
+					  		
+					  		<button id="l1_dec_decrypt_btn" class="btn btn-default">Расшифровать</button>
+					  		<button id="l1_enc_decrypt_btn_custom" class="btn btn-default">Расшифровать (сложный метод)</button>
+
+				  			
+				  		</div>
+
+				  </div>
+
+
+<!-- ---------------------------------------------- end first laba ---------------------------------------------- -->
+
+				  <div class="tab-pane" id="monoalphabetic">
+				  		<h1>Лабораторная работа №2</h1>
+				  		<h2>Шифрование методом моноалфавитной подстановки</h2>
+				  		<div id="l2_encryption_inputset" class="form">
+				  			<div class="input_cript">
+				  				<label>Введите текст, который необходимо зашифровать</label>
+					  			<textarea id="l2_enc_original_text" type="text" placeholder="Что будем шифровать?"></textarea>
+					  			<label>Введите коэффициент сдвига</label>
+					  			<input id="l2_enc_encryption_key" type="text" placeholder="Коэффициент сдвига" />
+					  			<span class="desc">Коэффициент сдвига - это целое число. Может быть отрицательным или положительным.</span>
+					  			
+					  		</div> 	
+
+					  		<div class="input_cript">
+					  			<label>Таблица подстановки</label>
+					  			<div class="matrixcript max-size">
+					  				
+
+										<table id="l2_enc_result_table" class="table table-responsive table-striped table-bordered">
+											<tbody>
+											</tbody>
+										</table>
+
+
+					  			</div>
+					  		</div>
+
+					  		<div class="input_cript">
+
+					  			<label>Зашифрованный текст</label>
+					  			<textarea id="l2_enc_encrypted_text" type="text" placeholder="Здесь будет зашифрованный текст"></textarea>	
+
+					  		</div>	
+					  		<div class="clear"></div>	  		
+							
+					  		<button id="l2_enc_encrypt_btn" class="btn btn-default">Зашифровать</button>
+					  							  		
+				  		</div>
+
+				  		<div id="l2_decryption_inputset" class="form">
+				  			<div class="input_cript">
+				  				<label>Введите текст, который необходимо расшифровать</label>
+					  			<textarea id="l2_dec_encrypted_text" type="text" placeholder="Что будем расшифровывать?"></textarea>
+					  			<label>Введите коэффициент сдвига</label>
+					  			<input id="l2_dec_encryption_key" type="text" placeholder="Коэффициент сдвига" />
+					  			<span class="desc">Коэффициент сдвига - это целое число. Может быть отрицательным или положительным.</span>
+					  			
+					  		</div> 	
+
+					  		<div class="input_cript ">
+					  		<label>Таблица подстановки</label>
+					  			<div class="matrixdecript max-size">
+					  					<table id="l2_dec_result_table" class="table table-striped table-responsive table-bordered">
+											<tbody>
+											</tbody>
+										</table>
+
+					  			</div>
+					  		</div>
+
+					  		<div class="input_cript">
+					  			<label>Расшифрованный текст</label>
+					  			<textarea id="l2_dec_decrypted_text" type="text" placeholder="Здесь будет расшифрованный текст"></textarea>	
+					  		</div>	
+					  		<div class="clear"></div>				  		
+					  		
+					  		<button id="l2_dec_decrypt_btn" class="btn btn-default">Расшифровать</button>
+					  						  			
+				  		</div>
+
+				  </div>
+
+
+				  <!-- ---------------------------------------------- end second laba ---------------------------------------------- -->
+
+
+				  <div class="tab-pane" id="multialphabet">
+				  						  		<h1>Лабораторная работа №3</h1>
+				  		<h2>Шифрование алгоритмом Вижинера</h2>
+				  		<div id="l3_encryption_inputset" class="form">
+				  			<div class="input_cript">
+				  				<label>Введите текст, который необходимо зашифровать</label>
+					  			<textarea id="l3_enc_original_text" type="text" placeholder="Что будем шифровать?"></textarea>
+					  			<label>Введите ключ шифрования</label>
+					  			<input id="l3_enc_encryption_key" type="text" placeholder="Ключ шифрования" data-toggle="tooltip" data-placement="bottom" title="Ключ состоит из букв алфавита" />
+					  			
+					  		</div> 	
+
+					  		<div class="input_cript">
+					  			<label>Таблица подстановки</label>
+					  			<div class="matrixcript max-size">
+					  				
+
+										<table id="l3_enc_result_table" class="table table-responsive table-striped table-bordered">
+											<thead>
+												<tr>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+
+
+					  			</div>
+					  		</div>
+
+					  		<div class="input_cript">
+					  			<label>Зашифрованный текст</label>
+					  			<textarea id="l3_enc_encrypted_text" type="text" placeholder="Здесь будет зашифрованный текст"></textarea>	
+					  		</div>		  		
+							<div class="clear"></div>
+					  		<button id="l3_enc_encrypt_btn" class="btn btn-default">Зашифровать</button>
+					  							  		
+				  		</div>
+
+				  		<div id="l3_decryption_inputset" class="form">
+				  			<div class="input_cript">
+				  				<label>Введите текст, который необходимо расшифровать</label>
+					  			<textarea id="l3_dec_encrypted_text" type="text" placeholder="Что будем расшифровывать?"></textarea>
+					  			<label>Введите коэффициент сдвига</label>
+					  			<input id="l3_dec_encryption_key" type="text" placeholder="Ключ шифрования" data-toggle="tooltip" data-placement="bottom" title="Ключ состоит из букв алфавита"/>
+					  			
+					  		</div> 	
+
+					  		<div class="input_cript ">
+					  		<label>Таблица подстановки</label>
+					  			<div class="matrixdecript max-size">
+					  					<table id="l3_dec_result_table" class="table table-striped table-responsive table-bordered">
+											<thead>
+												<tr>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+
+					  			</div>
+					  		</div>
+
+					  		<div class="input_cript">
+					  			<label>Расшифрованный текст</label>
+					  			<textarea id="l3_dec_decrypted_text" type="text" placeholder="Здесь будет расшифрованный текст"></textarea>	
+					  		</div>					  		
+					  		<div class="clear"></div>
+					  		<button id="l3_dec_decrypt_btn" class="btn btn-default">Расшифровать</button>
+					  						  			
+				  		</div>
+				  </div>
+				  <!-- ---------------------------------------------- end third laba ---------------------------------------------- -->
+
+
+				  <div class="tab-pane" id="hillscode">В разработке</div>
+				  <!-- ---------------------------------------------- end forth laba ---------------------------------------------- -->
+
+
+				  <div class="tab-pane" id="frequency">В разработке</div>
+				</div>
+				
+		</div>
+		
+<script type="text/javascript">
+	$(function () { $('[data-toggle="tooltip"]').tooltip() });
+</script>
+</body>
+</html>
